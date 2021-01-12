@@ -24,18 +24,19 @@
 
 pragma solidity 0.6.12;
 
-import { IERC677 } from "./IERC677.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-abstract contract AbstractFiatTokenV1 is IERC677 {
-    function _approve(
-        address owner,
-        address spender,
-        uint256 value
-    ) internal virtual;
-
-    function _transfer(
-        address from,
+abstract contract IERC677 is IERC20 {
+    function transferAndCall(
         address to,
-        uint256 value
-    ) internal virtual;
+        uint256 value,
+        bytes memory data
+    ) external virtual returns (bool success);
+
+    event Transfer(
+        address indexed from,
+        address indexed to,
+        uint256 value,
+        bytes data
+    );
 }

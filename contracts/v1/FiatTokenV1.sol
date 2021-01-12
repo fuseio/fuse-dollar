@@ -25,10 +25,12 @@
 pragma solidity 0.6.12;
 
 import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
+import { Address } from "@openzeppelin/contracts/utils/Address.sol";
 import { AbstractFiatTokenV1 } from "./AbstractFiatTokenV1.sol";
 import { Ownable } from "./Ownable.sol";
 import { Pausable } from "./Pausable.sol";
 import { Blacklistable } from "./Blacklistable.sol";
+import { ERC677Receiver } from "./ERC677Receiver.sol";
 
 /**
  * @title FiatToken
@@ -261,6 +263,41 @@ contract FiatTokenV1 is AbstractFiatTokenV1, Ownable, Pausable, Blacklistable {
         _transfer(from, to, value);
         allowed[from][msg.sender] = allowed[from][msg.sender].sub(value);
         return true;
+    }
+
+    /**
+     * @dev transfer token to a contract address with additional data if the recipient is a contact.
+     * @param to The address to transfer to.
+     * @param value The amount to be transferred.
+     * @param data The extra data to be passed to the receiving contract.
+     */
+    function transferAndCall(
+        address to,
+        uint256 value,
+        bytes memory data
+    )
+        external
+        override
+        whenNotPaused
+        notBlacklisted(msg.sender)
+        notBlacklisted(to)
+        returns (bool success)
+    {
+        _transfer(msg.sender, to, value);
+        emit Transfer(msg.sender, to, value, data);
+        if (Address.isContract(to)) {
+            contractFallback(to, value, data);
+        }
+        return true;
+    }
+
+    function contractFallback(
+        address to,
+        uint256 value,
+        bytes memory data
+    ) private {
+        ERC677Receiver receiver = ERC677Receiver(to);
+        receiver.onTokenTransfer(msg.sender, value, data);
     }
 
     /**

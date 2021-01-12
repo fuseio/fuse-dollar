@@ -24,18 +24,15 @@
 
 pragma solidity 0.6.12;
 
-import { IERC677 } from "./IERC677.sol";
-
-abstract contract AbstractFiatTokenV1 is IERC677 {
-    function _approve(
-        address owner,
-        address spender,
-        uint256 value
-    ) internal virtual;
-
-    function _transfer(
-        address from,
-        address to,
-        uint256 value
-    ) internal virtual;
+/**
+ * @title ERC677Receiver
+ * @dev Contract interface for receivers of tokens that comply with ERC-677.
+ * See https://github.com/ethereum/EIPs/issues/677 for details.
+ */
+abstract contract ERC677Receiver {
+    function onTokenTransfer(
+        address _sender,
+        uint256 _value,
+        bytes memory _data
+    ) public virtual;
 }
