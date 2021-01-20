@@ -30,7 +30,7 @@ contract("FiatTokenV2", (accounts) => {
     // hardcode chainId to be 1 due to ganache bug
     // https://github.com/trufflesuite/ganache/issues/1643
     // chainId = await web3.eth.getChainId();
-    chainId = 1;
+    chainId = 122;
 
     domainSeparator = web3.utils.keccak256(
       web3.eth.abi.encodeParameters(
