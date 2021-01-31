@@ -14,10 +14,10 @@ contract("FiatTokenV1_1", (accounts) => {
     fiatToken = await FiatTokenV1_1.new();
     const owner = accounts[0];
     await fiatToken.initialize(
-      "USD Coin",
-      "USDC",
+      "Fuse Dollar",
+      "fUSD",
       "USD",
-      6,
+      18,
       owner,
       owner,
       owner,

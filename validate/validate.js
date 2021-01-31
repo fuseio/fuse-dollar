@@ -15,10 +15,10 @@ const BLACKLISTER = 0x063d13783a0a2ce65b1ca00d9e897e6c8b1ec86b;
 // If replacing with real minters need to modify printMinterInfo
 const minters = ["0x0000", "0x0001"];
 
-const NAME = "USD//C";
-const SYMBOL = "USDC";
+const NAME = "Fuse Dollar";
+const SYMBOL = "fUSD";
 const CURRENCY = "USD";
-const DECIMALS = 6;
+const DECIMALS = 18;
 const TOTALSUPPLY = 0;
 const PAUSED = false;
 
