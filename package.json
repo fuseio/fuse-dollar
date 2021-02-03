@@ -20,7 +20,8 @@
     "precommit": "yarn typechain && yarn fmt && yarn typecheck && yarn lint && yarn solhint",
     "slither": "slither --solc-disable-warnings --disable-color --exclude-dependencies .",
     "migrate": "truffle migrate --interactive",
-    "migrate:fuse": "truffle migrate --interactive --network fuse"
+    "migrate:fuse": "truffle migrate --interactive --network fuse",
+    "flatten": "scripts/flatten.sh"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,6 @@
   },
   "homepage": "https://github.com/centrehq/centre-tokens#readme",
   "devDependencies": {
-    "truffle-hdwallet-provider": "^1.0.17",
     "@openzeppelin/contracts": "^3.1.0",
     "@typechain/truffle-v5": "^2.0.2",
     "@types/chai": "^4.2.11",
@@ -65,6 +65,8 @@
     "solhint": "^3.1.0",
     "solidity-coverage": "^0.7.9",
     "truffle": "^5.1.35",
+    "truffle-flattener": "^1.5.0",
+    "truffle-hdwallet-provider": "^1.0.17",
     "ts-node": "^8.10.2",
     "typechain": "^2.0.0",
     "typescript": "^3.9.7",
