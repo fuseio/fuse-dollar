@@ -519,8 +519,6 @@ contract Blacklistable is Ownable {
 
 // File: contracts/v1/FiatTokenV1.sol
 
-
-
 pragma solidity 0.6.12;
 
 /**
@@ -894,6 +892,7 @@ library Address {
         // for accounts without code, i.e. `keccak256('')`
         bytes32 codehash;
 
+
             bytes32 accountHash
          = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
         // solhint-disable-next-line no-inline-assembly
@@ -1049,8 +1048,6 @@ library Address {
 
 // File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
 
-
-
 pragma solidity ^0.6.0;
 
 /**
@@ -1180,8 +1177,6 @@ library SafeERC20 {
 
 // File: contracts/v1.1/Rescuable.sol
 
-
-
 pragma solidity 0.6.12;
 
 contract Rescuable is Ownable {
@@ -1237,8 +1232,6 @@ contract Rescuable is Ownable {
 
 // File: contracts/v1.1/FiatTokenV1_1.sol
 
-
-
 pragma solidity 0.6.12;
 
 /**
@@ -1250,8 +1243,6 @@ contract FiatTokenV1_1 is FiatTokenV1, Rescuable {
 }
 
 // File: contracts/v2/AbstractFiatTokenV2.sol
-
-
 
 pragma solidity 0.6.12;
 
@@ -1324,8 +1315,6 @@ library ECRecover {
 
 // File: contracts/util/EIP712.sol
 
-
-
 pragma solidity 0.6.12;
 
 /**
@@ -1387,8 +1376,6 @@ library EIP712 {
 
 // File: contracts/v2/EIP712Domain.sol
 
-
-
 pragma solidity 0.6.12;
 
 /**
@@ -1402,8 +1389,6 @@ contract EIP712Domain {
 }
 
 // File: contracts/v2/GasAbstraction.sol
-
-
 
 pragma solidity 0.6.12;
 
@@ -1716,8 +1701,6 @@ abstract contract GasAbstraction is AbstractFiatTokenV2, EIP712Domain {
 
 // File: contracts/v2/Permit.sol
 
-
-
 pragma solidity 0.6.12;
 
 /**
@@ -1786,8 +1769,6 @@ abstract contract Permit is AbstractFiatTokenV2, EIP712Domain {
 }
 
 // File: contracts/v2/FiatTokenV2.sol
-
-
 
 pragma solidity 0.6.12;
 
@@ -2383,8 +2364,6 @@ contract AdminUpgradeabilityProxy is UpgradeabilityProxy {
 
 // File: contracts/v1/FiatTokenProxy.sol
 
-
-
 pragma solidity 0.6.12;
 import {
     AdminUpgradeabilityProxy
@@ -2402,8 +2381,6 @@ contract FiatTokenProxy is AdminUpgradeabilityProxy {
 }
 
 // File: contracts/v2/upgrader/V2UpgraderHelper.sol
-
-
 
 pragma solidity 0.6.12;
 
@@ -2530,8 +2507,6 @@ contract V2UpgraderHelper is Ownable {
 }
 
 // File: contracts/v2/upgrader/V2Upgrader.sol
-
-
 
 pragma solidity 0.6.12;
 
